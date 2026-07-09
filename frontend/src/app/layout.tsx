@@ -15,6 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* Prevent flash of wrong theme */}
         <script
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
             __html: `(function(){var s=localStorage.getItem('groweasy-theme');document.documentElement.setAttribute('data-theme',s||'light');})();`,
           }}

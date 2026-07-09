@@ -148,24 +148,83 @@ export default function Home() {
           {step === "upload" && (
             <div className="slide-up">
               {/* Hero heading */}
-              <div style={{ marginBottom: 36, textAlign: "left" }}>
-                <div style={{
-                  display: "inline-flex", alignItems: "center", gap: 6,
-                  fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.06em",
-                  textTransform: "uppercase", color: "var(--accent)",
-                  background: "var(--accent-light)", border: "1px solid var(--accent-medium)",
-                  padding: "3px 10px", borderRadius: "var(--radius-pill)", marginBottom: 20,
-                }}>
-                  <Sparkles size={11} /> AI-Powered
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 32, marginBottom: 36, flexWrap: "wrap" }}>
+                <div style={{ flex: "1 1 380px", textAlign: "left" }}>
+                  <div style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.06em",
+                    textTransform: "uppercase", color: "var(--accent)",
+                    background: "var(--accent-light)", border: "1px solid var(--accent-medium)",
+                    padding: "3px 10px", borderRadius: "var(--radius-pill)", marginBottom: 20,
+                  }}>
+                    <Sparkles size={11} /> AI-Powered
+                  </div>
+                  <h1 style={{ fontSize: "2.4rem", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 14 }}>
+                    Import any CSV into<br />
+                    <span className="text-accent">GrowEasy CRM.</span>
+                  </h1>
+                  <p style={{ fontSize: "1rem", color: "var(--text-muted)", maxWidth: 480, lineHeight: 1.7 }}>
+                    Upload leads from Facebook, Google Ads, Excel, or any spreadsheet.
+                    AI automatically maps your columns to CRM fields.
+                  </p>
                 </div>
-                <h1 style={{ fontSize: "2.4rem", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 14 }}>
-                  Import any CSV into<br />
-                  <span className="text-accent">GrowEasy CRM.</span>
-                </h1>
-                <p style={{ fontSize: "1rem", color: "var(--text-muted)", maxWidth: 480, lineHeight: 1.7 }}>
-                  Upload leads from Facebook, Google Ads, Excel, or any spreadsheet.
-                  AI automatically maps your columns to CRM fields.
-                </p>
+
+                {/* Right side test download files */}
+                <div className="card-subtle" style={{ flex: "1 1 260px", maxWidth: "340px", display: "flex", flexDirection: "column", gap: 12 }}>
+                  <div style={{ fontWeight: 700, fontSize: "0.85rem", color: "var(--text-primary)" }}>
+                    Download Test CSVs
+                  </div>
+                  <p style={{ fontSize: "0.75rem", color: "var(--text-muted)", margin: 0 }}>
+                    Use these sample files directly to try the parser:
+                  </p>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 4 }}>
+                    <button 
+                      onClick={() => {
+                        const url = "https://raw.githubusercontent.com/sivadhanushreddykotturu/GrowEasy-csv-internship_assignment/main/test-csvs/facebook_leads.csv";
+                        fetch(url).then(res => res.blob()).then(blob => {
+                          const a = document.createElement("a");
+                          a.href = URL.createObjectURL(blob);
+                          a.download = "facebook_leads.csv";
+                          a.click();
+                        }).catch(() => window.open(url, "_blank"));
+                      }}
+                      className="btn-reset"
+                      style={{ fontSize: "0.8rem", display: "inline-flex", alignItems: "center", gap: 6, fontWeight: 600, border: "none", background: "none", color: "var(--accent)", cursor: "pointer", padding: 0 }}
+                    >
+                      <Download size={12} /> facebook_leads.csv
+                    </button>
+                    <button 
+                      onClick={() => {
+                        const url = "https://raw.githubusercontent.com/sivadhanushreddykotturu/GrowEasy-csv-internship_assignment/main/test-csvs/realestate_crm.csv";
+                        fetch(url).then(res => res.blob()).then(blob => {
+                          const a = document.createElement("a");
+                          a.href = URL.createObjectURL(blob);
+                          a.download = "realestate_crm.csv";
+                          a.click();
+                        }).catch(() => window.open(url, "_blank"));
+                      }}
+                      className="btn-reset"
+                      style={{ fontSize: "0.8rem", display: "inline-flex", alignItems: "center", gap: 6, fontWeight: 600, border: "none", background: "none", color: "var(--accent)", cursor: "pointer", padding: 0 }}
+                    >
+                      <Download size={12} /> realestate_crm.csv
+                    </button>
+                    <button 
+                      onClick={() => {
+                        const url = "https://raw.githubusercontent.com/sivadhanushreddykotturu/GrowEasy-csv-internship_assignment/main/test-csvs/messy_spreadsheet.csv";
+                        fetch(url).then(res => res.blob()).then(blob => {
+                          const a = document.createElement("a");
+                          a.href = URL.createObjectURL(blob);
+                          a.download = "messy_spreadsheet.csv";
+                          a.click();
+                        }).catch(() => window.open(url, "_blank"));
+                      }}
+                      className="btn-reset"
+                      style={{ fontSize: "0.8rem", display: "inline-flex", alignItems: "center", gap: 6, fontWeight: 600, border: "none", background: "none", color: "var(--accent)", cursor: "pointer", padding: 0 }}
+                    >
+                      <Download size={12} /> messy_spreadsheet.csv
+                    </button>
+                  </div>
+                </div>
               </div>
 
               {/* Step indicator */}
@@ -362,7 +421,7 @@ export default function Home() {
               © 2026 GrowEasy. Built with Next.js + Express + Groq AI.
             </p>
             <div className="footer-links">
-              <a href="https://github.com/sivadhanushreddykotturu" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://github.com/sivadhanushreddykotturu/GrowEasy-csv-internship_assignment.git" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
           </div>
         </div>
