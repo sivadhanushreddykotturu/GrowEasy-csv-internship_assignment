@@ -1,0 +1,9 @@
+Property ID,Client Name,Client Email,Contact Number,Alternate Number,Property Type,Location,Area,Budget,Possession Date,Source,Lead Status,Agent Name,Enquiry Date,Notes
+RE-001,Deepak Verma,deepak.verma@gmail.com,9901234567,9901234568,2BHK Apartment,Sarjapur Road,1200 sqft,85 Lakhs,Dec 2026,sarjapur_plots,Active,Priya Joshi,2026-04-01,Client looking for east facing unit. Budget flexible upto 90L
+RE-002,Meena Krishnan,meena.k@rediffmail.com,9912345678,,Villa,Eden Park,2800 sqft,1.5 Crore,Mar 2027,eden_park,Converted,"Kavita Singh",2026-04-03,"Booked villa no. 12, full payment done"
+RE-003,Alok Tiwari,alok.tiwari@gmail.com,9923456789,9999112233,Plot,Varah Swamy Layout,1500 sqft,45 Lakhs,Ready to move,varah_swamy,Lost,Rahul Mehta,2026-04-05,Price too high compared to market. Not interested
+RE-004,Fatima Sheikh,fatima.sheikh@gmail.com,9934567890,,3BHK Apartment,Meridian Tower,1800 sqft,1.2 Crore,Jun 2026,meridian_tower,Follow Up Needed,Kavita Singh,2026-04-07,"Called twice, voicemail left. Will try again"
+RE-005,Ganesh Pai,ganesh.pai@outlook.com,9945678901,,Commercial Space,Electronic City,3000 sqft,2.5 Crore,Immediate,leads_on_demand,Active,Priya Joshi,2026-04-09,Wants GST invoice. Needs approval from board
+RE-006,Harini Subramanian,harini.s@yahoo.com,9956789012,,2BHK Apartment,Whitefield,1100 sqft,70 Lakhs,Sep 2026,sarjapur_plots,Converted,Rahul Mehta,2026-04-11,Payment plan opted. Token amount received
+RE-007,Imran Khan,imran.k@gmail.com,,,Plot,Sarjapur Road,2000 sqft,60 Lakhs,Ready to move,sarjapur_plots,Invalid,,2026-04-13,No contact number found - invalid lead
+RE-008,Jayalakshmi Nair,jaya.nair@gmail.com,9978901234,,4BHK Villa,Eden Park,3500 sqft,2.2 Crore,Dec 2026,eden_park,Follow Up Needed,Kavita Singh,2026-04-15,Wants to compare with competitor project. Scheduled site visit

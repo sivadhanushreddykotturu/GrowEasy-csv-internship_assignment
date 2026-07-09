@@ -1,0 +1,56 @@
+version: "3.9"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GrowEasy CSV Importer – Docker Compose
+# ─────────────────────────────────────────────────────────────────────────────
+# Prerequisites:
+#   1. Create a root-level .env file with:   GROQ_API_KEY=gsk_xxxx
+#   2. docker compose up --build
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+
+  # ── Backend (Express + Groq AI) ──────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: groweasy-backend
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      NODE_ENV: production
+      GROQ_API_KEY: ${GROQ_API_KEY}
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 15s
+
+  # ── Frontend (Next.js) ───────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://backend:3001
+    container_name: groweasy-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_API_URL: http://backend:3001
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
